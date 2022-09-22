@@ -87,6 +87,7 @@
     <table class="table table-striped table-dark table-responsive table-hover table-bordered">
       <thead>
         <tr>
+          <th>Id</th>
           <th>Carnet</th>
           <th>Nombres</th>
           <th>Apellidos</th>
@@ -104,6 +105,8 @@
          $db_conexion -> real_query ("SELECT e.id_estudiante as id,e.carnet,e.nombres,e.apellidos,e.direccion,e.telefono,e.genero,e.email,e.fecha_nacimiento FROM estudiantes as e;");
         $resultado = $db_conexion -> use_result();
         while ($fila = $resultado ->fetch_assoc()){
+          echo "<tr>";
+          echo "<td>". $fila['id']."</td>";
           echo "<td>". $fila['carnet']."</td>";
           echo "<td>". $fila['nombres']."</td>";
           echo "<td>". $fila['apellidos']."</td>";
@@ -140,15 +143,15 @@
     $('#tbl_estudiantes').on('click','tr td',function(evt){
         var target,id,idg,carne,nombres,apellidos,direccion,telefono,electronico,nacimiento;
         target = $(event.target);
-        id = target.parent().data('id');
-        idg = target.parent().data('idg');
-        carne = target.parent("tr").find("td").eq(0).html();
-        nombres = target.parent("tr").find("td").eq(1).html();
-        apellidos =  target.parent("tr").find("td").eq(2).html();
-        direccion = target.parent("tr").find("td").eq(3).html();
-        telefono = target.parent("tr").find("td").eq(4).html();
-        electronico = target.parent("tr").find("td").eq(6).html();
-        nacimiento  = target.parent("tr").find("td").eq(7).html();
+        id = target.parent().find("td").eq(0).html();
+        idg = target.parent().find("td").eq(6).html();
+        carne = target.parent("tr").find("td").eq(1).html();
+        nombres = target.parent("tr").find("td").eq(2).html();
+        apellidos =  target.parent("tr").find("td").eq(3).html();
+        direccion = target.parent("tr").find("td").eq(4).html();
+        telefono = target.parent("tr").find("td").eq(5).html();
+        electronico = target.parent("tr").find("td").eq(7).html();
+        nacimiento  = target.parent("tr").find("td").eq(8).html();
         $("#txt_id").val(id);
         $("#txt_carne").val(carne);
         $("#txt_nombres").val(nombres);
