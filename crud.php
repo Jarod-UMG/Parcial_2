@@ -15,7 +15,7 @@
         $db_conexion = mysqli_connect($db_host,$db_usr,$db_pass,$db_nombre);
         $sql ="";
         if(isset($_POST['btn_agregar'])  ){
-          $sql = "INSERT INTO estudiantes(carnet,nombres,apellidos,direccion,telefono,genero,email,fecha_nacimiento) VALUES ('". $txt_carne ."','". $txt_nombres ."','". $txt_apellidos ."','". $txt_direccion ."','". $txt_telefono ."',B'". $drop_genero ."','". $txt_ce ."','". $txt_fn ."');";
+          $sql = "INSERT INTO estudiantes(carnet,nombres,apellidos,direccion,telefono,email,fecha_nacimiento,genero) VALUES ('". $txt_carne ."','". $txt_nombres ."','". $txt_apellidos ."','". $txt_direccion ."','". $txt_telefono ."','". $txt_ce ."','". $txt_fn ."',B'". $drop_genero ."');";
         }
         if( isset($_POST['btn_modificar'])  ){
           $sql = "update estudiantes set carnet='". $txt_carne ."',nombres='". $txt_nombres ."',apellidos='". $txt_apellidos ."',direccion='". $txt_direccion ."',telefono='". $txt_telefono ."',genero=B'". $drop_genero ."',email='". $txt_ce ."',fecha_nacimiento='". $txt_fn ." where id_estudiante = ". $txt_id.";";
